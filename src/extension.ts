@@ -7,10 +7,16 @@ export function activate(context: vscode.ExtensionContext) {
 
     const doc = editor.document;
     const selection = editor.selection;
-    const range = doc.getWordRangeAtPosition(selection.active, /["'][^"']*["']/);
+    const range = doc.getWordRangeAtPosition(selection.active, /["']([^"']*)["']/);
 
     if (range) {
-      editor.selection = new vscode.Selection(range.start, range.end);
+      // Create a new range that starts right after the opening quote and ends right before the closing quote
+      const textInsideQuotesRange = new vscode.Range(
+        range.start.translate(0, 1), // Move start position one character to the right
+        range.end.translate(0, -1)   // Move end position one character to the left
+      );
+      
+      editor.selection = new vscode.Selection(textInsideQuotesRange.start, textInsideQuotesRange.end);
     }
   });
 
