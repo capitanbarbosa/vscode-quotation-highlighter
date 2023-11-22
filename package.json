@@ -9,13 +9,22 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.highlightText"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "vscode-quotation-highlighter.helloWorld",
-        "title": "Hello World"
+        "command": "extension.highlightText",
+        "title": "Highlight Text"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.highlightText",
+        "key": "cmd+'",
+        "when": "editorTextFocus"
       }
     ]
   },
