@@ -1,7 +1,11 @@
 {
   "name": "vscode-quotation-highlighter",
   "displayName": "vscode-quotation-highlighter",
-  "description": "highlight all text inside quotations.",
+  "description": "highlight all text inside quotations with cmd+' shortcut.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/capitanbarbosa/vscode-quotation-highlighter"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.84.0"
